@@ -4,7 +4,7 @@ namespace EmployeesApp.Web.Services
 {
     public class EmployeeService
     {
-        private List<Employee> employees = 
+        private static List<Employee> employees = 
             [
             new Employee {Id = 10, Name = "Niklas", Email = "niklas@company.com" },
             new Employee {Id = 43, Name = "Tobias", Email = "tobias@company.com"},

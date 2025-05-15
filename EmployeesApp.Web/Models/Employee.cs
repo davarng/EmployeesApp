@@ -8,14 +8,17 @@ namespace EmployeesApp.Web.Models
 
         [Required(ErrorMessage = "Enter a name")]
         [StringLength(20, MinimumLength = 1, ErrorMessage = "Must be at least one letter")]
-        [RegularExpression(@"^\p{L}+$", ErrorMessage = "Letters only")]
+        [RegularExpression(@"^\p{L}+$", ErrorMessage = "Name can only be letters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Enter an E-mail")]
         [EmailAddress(ErrorMessage = "Enter a valid E-mail")]
         [CheckIfCompanyEmail(ErrorMessage = "Must enter the company email (@company.com)")]
-        [CheckIfEmailIsUnique]
+
         [Display(Name = "E-mail")]
+
+        [CheckIfEmailIsUnique]
+
         public string Email { get; set; }
     }
 }
