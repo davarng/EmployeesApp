@@ -8,11 +8,11 @@
 </head>
 <body>
     <h2>New Employee</h2>
-    <form @*asp-controller="employee" asp-action="create"*@ action="/create" method="post">
+    <form asp-controller="employee" asp-action="create"> @*action="/create" method="post">*@
         <label asp-for="Name">Employee name</label>
-        <input asp-for="Name"/>
+        <input asp-for="Name" required minlength="2" />
         <label asp-for="Email">Employee Email</label>
-        <input asp-for="Email"/>
+        <input asp-for="Email" required minlength ="2"/>
         <input type="submit" value="Create" />
     </form>
     @*
@@ -23,8 +23,8 @@
         <label>City</label>
         <input type="text" name="City" />
         <input type="submit" value="Create" />
-    </form>
+    </form>*@
     <div asp-validation-summary="All"></div>
-    *@
+    
 </body>
 </html>

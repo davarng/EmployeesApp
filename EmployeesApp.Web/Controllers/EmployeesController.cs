@@ -33,12 +33,19 @@ public class EmployeesController : Controller
     [HttpPost("create")]
     public IActionResult Create(Employee employee)
     {
-        if (!ModelState.IsValid)
+         if (!ModelState.IsValid)
             return View();
         
         employeeService.Add(employee);
 
         return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet("details/{id}")]
+    public IActionResult Details(int id)
+    {
+        var model = employeeService.GetEmployeeById(id);
+        return View(model);
     }
 
     //[HttpPost("edit")]

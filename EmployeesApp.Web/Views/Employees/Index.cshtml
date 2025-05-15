@@ -1,4 +1,5 @@
-﻿@model EmployeesApp.Web.Models.Employee[]
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EmployeesApp.Web.Models.Employee[]
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
         {
             <li>
                 @employee.Name @employee.Email @employee.Id
+                <a asp-controller ="employees" asp-route-id = "@employee.Id" asp-action="">Details</a>
             </li>
         }
 
