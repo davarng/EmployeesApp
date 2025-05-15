@@ -30,14 +30,10 @@ namespace EmployeesApp.Web.Services
             return employees.SingleOrDefault(e => e.Id == id);
         }
 
-        public Employee[] GetAllEmployees()
+        public static Employee[] GetAllEmployees()
         {
             return employees.ToArray();
         }
 
-        public bool EmailExists(string email)
-        {
-            return employees.Any(e => e.Email == email);
-        }
     }
 }
