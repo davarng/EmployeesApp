@@ -13,7 +13,7 @@ namespace EmployeesApp.Web.Models
 
         [Required(ErrorMessage = "Enter an E-mail")]
         [EmailAddress(ErrorMessage = "Enter a valid E-mail")]
-        //[CheckIfEmailIsUnique()]
+        [CheckIfCompanyEmail(ErrorMessage = "Must enter the company email (@company.com)")]
         public string Email { get; set; }
     }
 }

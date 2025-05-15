@@ -5,15 +5,14 @@ namespace EmployeesApp.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            //Niklas Test
+            
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
             app.MapControllers();
 
-            app.Run(); //comment
+            app.Run();
         }
     }
 }
-//David test
