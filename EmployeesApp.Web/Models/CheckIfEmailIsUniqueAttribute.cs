@@ -3,12 +3,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeesApp.Web.Models
 {
-    public class CheckIfEmailIsUniqueAttribute (EmployeeService service): ValidationAttribute
+    public class CheckIfEmailIsUniqueAttribute : ValidationAttribute
     {
-        public override bool IsValid(object value)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var list = service.GetAllEmployees();
-            return list.Any(e => value != e.Email);
+            var list = EmployeeService.GetAllEmployees();
+
+            var resultOfList = list.Any(e => (string)value != e.Email);
+
+            if (!resultOfList)
+            {
+                return new ValidationResult("Email is already in use.");
+
+            }
+
+            return ValidationResult.Success;
         }
     }
 }

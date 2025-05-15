@@ -13,7 +13,7 @@ public class EmployeesController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
-        var model = employeeService.GetAllEmployees();
+        var model = EmployeeService.GetAllEmployees();
         return View(model);
     }
 
@@ -33,9 +33,9 @@ public class EmployeesController : Controller
     [HttpPost("create")]
     public IActionResult Create(Employee employee)
     {
-         if (!ModelState.IsValid)
+        if (!ModelState.IsValid)
             return View();
-        
+
         employeeService.Add(employee);
 
         return RedirectToAction(nameof(Index));

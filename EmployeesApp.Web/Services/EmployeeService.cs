@@ -4,7 +4,7 @@ namespace EmployeesApp.Web.Services
 {
     public class EmployeeService
     {
-        private List<Employee> employees = [new Employee { Id = 10, Name = "Niklas", Email = "Test" }];
+        private static List<Employee> employees = [new Employee { Id = 10, Name = "Niklas", Email = "darngren@gmail.com" }];
 
         public void Add(Employee employee)
         {
@@ -25,7 +25,7 @@ namespace EmployeesApp.Web.Services
             return employees.SingleOrDefault(e => e.Id == id);
         }
 
-        public Employee[] GetAllEmployees()
+        public static Employee[] GetAllEmployees()
         {
             return employees.ToArray();
         }
