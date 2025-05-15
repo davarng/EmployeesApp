@@ -17,13 +17,6 @@ public class EmployeesController : Controller
         return View(model);
     }
 
-    //[HttpPost("{id}")]
-    //public IActionResult Delete(int id)
-    //{
-    //    employeeService.DeleteEmployee(id);
-    //    return RedirectToAction(nameof(Index));
-    //}
-
     [HttpGet("create")]
     public IActionResult Create()
     {
@@ -47,23 +40,6 @@ public class EmployeesController : Controller
         var model = employeeService.GetEmployeeById(id);
         return View(model);
     }
-
-    //[HttpPost("edit")]
-    //public IActionResult Edit(int id, string name, int age)
-    //{
-
-    //    employeeService.EditEmployee(id, name, age);
-
-    //    return RedirectToAction(nameof(Index));
-    //}
-
-    //[HttpGet("edit/{id}")]
-    //public IActionResult Edit(int id)
-    //{
-    //    var model = employeeService.GetEmployeeById(id);
-    //    return View(model);
-    //}
-
 
 }
 
