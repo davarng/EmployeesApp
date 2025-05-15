@@ -9,9 +9,11 @@ namespace EmployeesApp.Web.Models
         {
             var list = EmployeeService.GetAllEmployees();
 
-            var resultOfList = list.Any(e => (string)value != e.Email);
+            var resultOfList = list.Any(e => (string)value == e.Email);
 
-            if (!resultOfList)
+           
+
+            if (resultOfList)
             {
                 return new ValidationResult("Email is already in use.");
 
