@@ -1,0 +1,25 @@
+﻿@model EmployeesApp.Web.Models.Employee[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <ol>
+        @foreach (var employee in Model)
+        {
+            <li>
+                @employee.Name @employee.Email @employee.Id
+                <a href="/edit/@employee.Id">Edit Dog</a>
+                <form action="delete" method="post">
+                    <input type="submit" value="Delete" />
+                </form>
+            </li>
+        }
+
+    </ol>
+    <a href="/create">Add Employee</a>
+</body>
+
+</html>
