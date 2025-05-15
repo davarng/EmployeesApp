@@ -3,8 +3,14 @@
     public class Employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
 
-        public string Email { get; set; }
+[Required(ErrorMessage = "Enter a name")]
+[StringLength(MinimumLength = 1, ErrorMessage = "Must be at least one letter")]
+[RegularExpression(@"^\p{L}+$", ErrorMessage = "Letters only"))]
+public string Name { get; set; }
+
+[Required(ErrorMessage = "Enter an E-mail")]
+[EmailAddress(ErrorMessage = "Enter a valid E-mail")] 
+public string Email { get; set; }
     }
 }
