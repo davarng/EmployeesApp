@@ -5,17 +5,17 @@ using System.Xml;
 
 namespace EmployeesApp.Web.Models
 {
-    public class CheckIfCompanyEmail : ValidationAttribute
+    public class CheckIfCompanyEmailAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {
-            var input= value.ToString().Split('@');
+            var input = value.ToString().Split('@');
 
-            if (input[1]=="company.com")
+            if (input[1] == "company.com")
                 return true;
             else
             {
-                 return false;
+                return false;
             }
         }
     }
