@@ -8,6 +8,15 @@ namespace EmployeesApp.Web.Services
 
         public void Add(Employee employee)
         {
+            if (employees.Count == 0)
+            {
+                employee.Id = 1;
+            }
+            else
+            {
+                employee.Id = employees.Max(o => o.Id) + 1;
+            }
+
             employees.Add(employee);
         }
 

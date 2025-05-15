@@ -1,16 +1,18 @@
-﻿namespace EmployeesApp.Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EmployeesApp.Web.Models
 {
     public class Employee
     {
         public int Id { get; set; }
 
-[Required(ErrorMessage = "Enter a name")]
-[StringLength(MinimumLength = 1, ErrorMessage = "Must be at least one letter")]
-[RegularExpression(@"^\p{L}+$", ErrorMessage = "Letters only"))]
-public string Name { get; set; }
+        [Required(ErrorMessage = "Enter a name")]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "Must be at least one letter")]
+        [RegularExpression(@"^\p{L}+$", ErrorMessage = "Letters only")]
+        public string Name { get; set; }
 
-[Required(ErrorMessage = "Enter an E-mail")]
-[EmailAddress(ErrorMessage = "Enter a valid E-mail")] 
-public string Email { get; set; }
+        [Required(ErrorMessage = "Enter an E-mail")]
+        [EmailAddress(ErrorMessage = "Enter a valid E-mail")]
+        public string Email { get; set; }
     }
 }

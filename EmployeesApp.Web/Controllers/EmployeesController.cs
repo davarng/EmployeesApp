@@ -33,6 +33,9 @@ public class EmployeesController : Controller
     [HttpPost("create")]
     public IActionResult Create(Employee employee)
     {
+        if (!ModelState.IsValid)
+            return View();
+        
         employeeService.Add(employee);
 
         return RedirectToAction(nameof(Index));
